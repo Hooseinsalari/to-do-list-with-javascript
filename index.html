@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,13 @@
     <link rel="stylesheet" href="style.css">
     <link href="/css/all.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <h1>To do List</h1>
         <form class="form-container">
-            <input class="input" type="text">
-            <i class="fas fa-plus-circle"></i>
+            <input class="todoInput" type="text" value="">
+            <button type="submit" class="addBtn"><i class="fas fa-plus-circle"></i></button>
             <div class="container">
                 <select class="select">
                     <option class="all">all</option>
@@ -23,14 +25,12 @@
             </div>
         </form>
         <div class="todoContainer">
-            <ul class="todo">
-                <li>task 1</li>
-                <div class="icons">
-                    <span><i class="fas fa-trash-alt"></i></span>
-                    <span><i class="fas fa-check-square"></i></span>
-                </div>
+            <ul class="todoList">
             </ul>
         </div>
     </div>
+
+    <script src="./script.js"></script>
 </body>
+
 </html>
