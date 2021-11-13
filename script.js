@@ -1,10 +1,12 @@
 const todoInput = document.querySelector(".todoInput");
 const todoBtn = document.querySelector(".addBtn");
 const todoList = document.querySelector(".todoList");
+const filterOption = document.querySelector(".select")
 
 // even
 todoBtn.addEventListener("click", todoHandler);
 todoList.addEventListener("click", checkORremove)
+filterOption.addEventListener("click", filterTodos)
 
 // function
 function todoHandler (event) {
@@ -25,18 +27,51 @@ function todoHandler (event) {
     todoDiv.innerHTML = newTodo;
     todoList.appendChild(todoDiv);
     todoInput.value = "";
+    
 };
 
 function checkORremove(event) {
-
-    console.log(event.target.child)
+    const classList = [...event.target.classList]
     const item = event.target.parentElement
-    if(event.target.classList[1] === "fa-trash-alt"){
-        const todo = item.parentElement.parentElement
+    // console.log(item.parentElement.parentElement)
+    if(classList[1] === "fa-trash-alt"){
+        const todo = item.parentElement.parentElement;
         todo.remove()
+    } else if(classList[1] === "fa-check-square"){
+        const todo = item.parentElement.parentElement
+        todo.classList.toggle("checked")
+        console.log(todo)
     }
-    else if(event.target.classList[1] === "fa-check-square"){
-
-    }
+    
 }
 
+function filterTodos(event) {
+    // console.log(event.target.value)
+    const todos = [...todoList.childNodes]
+    // console.log(todos)
+    todos.forEach((item) => {
+        switch(event.target.value){
+            case "all":
+                item.style.display = "flex"
+                break;
+            case "completed":
+                if(item.className === "todo checked"){
+                    item.style.display = "flex" 
+                }
+                else if(item.className=== "todo"){
+                    item.style.display = "none"
+                }
+                break;
+            case "uncompleted":
+                if(item.className === "todo checked"){
+                    item.style.display = "none" 
+                }
+                else if(item.className=== "todo"){
+                    item.style.display = "flex"
+                }
+                break;
+        }
+    })
+
+    
+}

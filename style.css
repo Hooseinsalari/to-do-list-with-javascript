@@ -58,6 +58,27 @@ body {
     list-style: none;
 }
 
+.todoList .todo .icons {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.todoList .todo .icons .fa-trash-alt {
+    color: #DC2626;
+    font-weight: bold;
+}
+
+.select {
+    /* appearance: none; */
+    border: none;
+    border-radius: 10px;
+    padding: 13px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
 .todoContainer .todoList .todo{
     display: flex;
     align-items: center;
@@ -69,4 +90,13 @@ body {
     padding: 10px;
     border-radius: 10px;
     font-size: 18px;
+    transition: all 0.5s ease-in-out;
+    
 }
+
+.todoContainer .todoList .checked li {
+    opacity: 0.5;
+    text-decoration: line-through;
+    transition: all 0.5s ease-in-out;
+}
+
